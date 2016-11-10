@@ -238,8 +238,12 @@ void TestMinibatchSourceWarmStart(size_t numMBs, size_t minibatchSize, size_t wa
         bool distributed = minibatchSource->IsDistributed();
         if (distributed != (totalSamples >= warmStartSamples))
         {
-            ReportFailure("TestMinibatchSourceWarmStart failed in distributed state: expected %d, actual %d",
-                totalSamples >= warmStartSamples, distributed);
+            ReportFailure("TestMinibatchSourceWarmStart failed in distributed state: expected %d (%lu >= %lu in %lu), actual %d",
+                totalSamples >= warmStartSamples,
+                totalSamples,
+                warmStartSamples,
+                i,
+                distributed);
         }
 
         auto minibatchData = minibatchSource->GetNextMinibatch(minibatchSize);
