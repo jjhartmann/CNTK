@@ -33,11 +33,15 @@ cntk_args += " TestROIDim={} TestROILabelDim={}".format(TestROIDim, TestROILabel
 # copy config file
 shutil.copy(cntkTemplateDir + "fastrcnn.cntk", cntkFilesDir)
 
+print ("Run the CNTK command")
 # run cntk
 tstart = datetime.datetime.now()
 os.environ['ACML_FMA'] = str(0)
-cmdStr = cntkCmdStrPattern.format(cntkFilesDir, cntk_args)
+cmdStr = cntkCmdStrPattern.format(cntkFilesDir, cntk_args).replace("/", "\\")
+cntkFilesDir = cntkFilesDir.replace("/", "\\")
+
 print (cmdStr)
+print (cntkFilesDir)
 pid = subprocess.Popen(cmdStr, cwd = cntkFilesDir)
 pid.wait()
 print ("Time running cntk [s]: " + str((datetime.datetime.now() - tstart).total_seconds()))

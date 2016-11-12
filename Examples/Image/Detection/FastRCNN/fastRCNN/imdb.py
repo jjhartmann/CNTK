@@ -13,9 +13,11 @@ import scipy.sparse
 from builtins import range
 
 import sys
-if sys.version_info[0] < 3: 
+if sys.version_info[0] < 3:
     from utils2_win64.cython_bbox import bbox_overlaps
 else:
+    lib_path = os.path.abspath(os.getcwd() + "/fastRCNN/utils3_win64/")
+    sys.path.append(lib_path)
     from .utils3_win64.cython_bbox import bbox_overlaps
 
 class imdb(object):
