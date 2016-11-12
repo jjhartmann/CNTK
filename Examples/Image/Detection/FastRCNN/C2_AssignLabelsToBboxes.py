@@ -12,10 +12,8 @@ from cntk_helpers import *
 ####################################
 # Parameters
 ####################################
-imgDir = "C:/Users/chazhang/Desktop/newImgs/"
-classes = ("avocado", "orange", "butter", "champagne", "cheese", "eggBox", "gerkin", "joghurt", "ketchup",
-           "orangeJuice", "onion", "pepper", "sausage", "tomato", "water", "apple", "milk",
-           "tabasco", "soySauce", "mustard", "beer")
+imgDir = "D:\Documents 2\COCO Dataset\ExperimentOne\\testImages"
+classes = ("pbox", "dial", "slider")
 
 #no need to change these
 drawingImgSize = 1000

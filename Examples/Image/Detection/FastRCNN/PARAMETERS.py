@@ -6,7 +6,7 @@ from fastRCNN.pascal_voc import pascal_voc # as nmsPython
 print (datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S'))
 
 # dataset name
-datasetName = "grocery"
+datasetName = "ExperimentOne"
 # datasetName = "pascalVoc"
 # datasetName = "pascalVoc_aeroplanesOnly"
 
@@ -21,7 +21,8 @@ cntk_padHeight = 1000
 
 # directories
 rootDir = os.path.dirname(os.path.realpath(sys.argv[0])) + "/"
-imgDir = rootDir + "../../DataSets/Grocery/"
+# imgDir = rootDir + "../../DataSets/Grocery/"
+imgDir = "D:\Documents 2\COCO Dataset\ExperimentOne\\"
 pascalDataDir = rootDir + "../../DataSets/Pascal/"
 
 # derived directories
@@ -53,10 +54,9 @@ nmsThreshold = 0.3          # Non-Maxima suppression threshold (in range [0,1]).
 ############################
 # project-specific parameters
 ############################
-if datasetName.startswith("grocery"):
+if datasetName.startswith("ExperimentOne"):
     classes = ('__background__',  # always index 0
-               'avocado', 'orange', 'butter', 'champagne', 'eggBox', 'gerkin', 'joghurt', 'ketchup',
-               'orangeJuice', 'onion', 'pepper', 'tomato', 'water', 'milk', 'tabasco', 'mustard')
+               "pbox", "dial", "slider")
 
     # roi generation
     roi_minDimRel = 0.04
