@@ -50,7 +50,7 @@ print ("Time running cntk [s]: " + str((datetime.datetime.now() - tstart).total_
 modelDir = cntkFilesDir + "Output/"
 filenames = getFilesInDirectory(modelDir, postfix = None)
 for filename in filenames:
-    if filename.contains('Fast-RCNN.model.'):
+    if filename.find('Fast-RCNN.model.'):
         os.remove(modelDir + filename)
 assert pid.returncode == 0, "ERROR: cntk ended with exit code {}".format(pid.returncode)
 
