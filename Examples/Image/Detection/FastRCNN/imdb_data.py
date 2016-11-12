@@ -158,7 +158,7 @@ class imdb_data(fastRCNN.imdb):
         labels = readFile(labelsPaths)
 
         #remove boxes marked as 'undecided' or 'exclude'
-        indicesToKeep = find(labels, lambda x: x!='EXCLUDE' and x!='UNDECIDED')
+        indicesToKeep = find(labels, lambda x: x!=b'EXCLUDE' and x!=b'UNDECIDED')
         bboxes = [bboxes[i] for i in indicesToKeep]
         labels = [labels[i] for i in indicesToKeep]
 
