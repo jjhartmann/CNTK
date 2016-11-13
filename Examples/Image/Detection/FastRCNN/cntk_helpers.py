@@ -264,6 +264,9 @@ def readCntkRoiCoordinates(imgPaths, cntkRoiCoordsPath, nrRois, padWidth, padHei
         for boxIndex in range(nrRois):
             rect = [float(s) for s in valuesString[boxIndex*4 : (boxIndex+1)*4]]
             x,y,w,h = rect
+            if w <= 0.0 or h <= 0.0:
+                continue
+
             # convert back from padded-rois-co-ordinates to image co-ordinates
             rect = getAbsoluteROICoordinates([x,y,x+w,y+h], imgWidth, imgHeight, padWidth, padHeight)
             roiCoords[imgIndex].append(rect)
